@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novoelectra Tienda | Productos</title>
+  <link rel="icon" type="image/png" href="../logo-ne-amarillo.png">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Navbar con carrito -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">← Volver</a>
+      <div class="cart-icon" id="cartBtn">
+        🛒 <span id="cartCount">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Catálogo -->
+  <main class="container">
+    <h1>Nuestros Productos</h1>
+    <div id="productsGrid" class="products-grid"></div>
+  </main>
+
+  <!-- Modal Carrito -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <h3>Tu Carrito</h3>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+      <button id="checkoutBtn" class="btn btn-primary">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script src="tienda.js"></script>
+</body>
+</html>
