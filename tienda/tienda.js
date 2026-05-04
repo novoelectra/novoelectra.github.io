@@ -2,20 +2,19 @@
 // NOVOELECTRA TIENDA - LÓGICA DEL CARRITO
 // ============================================
 
-// URL del JSON de productos
-const PRODUCTOS_URL = 'productos.json';
-
-// Número de WhatsApp del cliente (ACTUALIZADO)
 const WHATSAPP_NUMBER = '5353834215';
 
-// Carrito en localStorage
 let cart = JSON.parse(localStorage.getItem('novoelectra_cart')) || [];
 let productos = [];
 
-// CARGAR PRODUCTOS
+// ============================================
+// CARGAR PRODUCTOS (CON CACHE BUSTING)
+// ============================================
 async function loadProducts() {
   try {
-    const res = await fetch(PRODUCTOS_URL);
+    // ✅ Agregar timestamp para evitar caché
+    const timestamp = new Date().getTime();
+    const res = await fetch(`productos.json?t=${timestamp}`);
     const data = await res.json();
     productos = data.productos.filter(p => p.activo);
     renderProducts(productos);
@@ -26,7 +25,9 @@ async function loadProducts() {
   }
 }
 
+// ============================================
 // RENDERIZAR PRODUCTOS
+// ============================================
 function renderProducts(lista) {
   const grid = document.getElementById('productsGrid');
   if (lista.length === 0) {
@@ -66,7 +67,9 @@ function renderProducts(lista) {
   });
 }
 
+// ============================================
 // AGREGAR AL CARRITO
+// ============================================
 function addToCart(producto) {
   const existing = cart.find(item => item.id === producto.id);
   if (existing) {
@@ -79,7 +82,9 @@ function addToCart(producto) {
   showToast(`${producto.nombre} agregado al carrito`);
 }
 
+// ============================================
 // ACTUALIZAR CONTADOR
+// ============================================
 function updateCartCount() {
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   document.getElementById('cartCount').textContent = count;
@@ -88,7 +93,9 @@ function updateCartCount() {
   setTimeout(() => cartIcon.style.transform = 'scale(1)', 200);
 }
 
+// ============================================
 // MOSTRAR TOAST
+// ============================================
 function showToast(message) {
   const toast = document.createElement('div');
   toast.textContent = message;
@@ -97,7 +104,9 @@ function showToast(message) {
   setTimeout(() => toast.remove(), 3000);
 }
 
+// ============================================
 // MODAL CARRITO
+// ============================================
 document.getElementById('cartBtn')?.addEventListener('click', () => {
   document.getElementById('cartModal').style.display = 'flex';
   renderCart();
@@ -113,7 +122,9 @@ document.getElementById('cartModal')?.addEventListener('click', (e) => {
   }
 });
 
+// ============================================
 // RENDERIZAR CARRITO
+// ============================================
 function renderCart() {
   const container = document.getElementById('cartItems');
   if (cart.length === 0) {
@@ -141,7 +152,9 @@ function renderCart() {
   document.getElementById('cartTotal').textContent = total.toFixed(2);
 }
 
+// ============================================
 // FUNCIONES GLOBALES
+// ============================================
 window.updateQuantity = function(id, change) {
   const item = cart.find(i => i.id === id);
   if (item) {
@@ -162,7 +175,9 @@ window.removeItem = function(id) {
   updateCartCount();
 };
 
+// ============================================
 // CHECKOUT WHATSAPP
+// ============================================
 document.getElementById('checkoutBtn')?.addEventListener('click', () => {
   if (cart.length === 0) {
     alert('Tu carrito está vacío');
@@ -179,7 +194,9 @@ document.getElementById('checkoutBtn')?.addEventListener('click', () => {
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
 
+// ============================================
 // FILTROS
+// ============================================
 document.querySelectorAll('.filtro-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
@@ -194,7 +211,9 @@ document.querySelectorAll('.filtro-btn').forEach(btn => {
   });
 });
 
+// ============================================
 // INICIALIZAR
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
   updateCartCount();
