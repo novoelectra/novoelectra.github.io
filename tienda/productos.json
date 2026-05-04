@@ -1,0 +1,54 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Cable Eléctrico 12 AWG",
+      "descripcion": "Cable eléctrico calibre 12, rollo 100m",
+      "precio": 45.00,
+      "stock": 50,
+      "categoria": "Cables",
+      "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=Cable+12AWG",
+      "activo": true
+    },
+    {
+      "id": "2",
+      "nombre": "Breaker 20A",
+      "descripcion": "Interruptor termomagnético 20 amperios",
+      "precio": 8.50,
+      "stock": 100,
+      "categoria": "Protección",
+      "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=Breaker+20A",
+      "activo": true
+    },
+    {
+      "id": "3",
+      "nombre": "Panel Solar 300W",
+      "descripcion": "Panel fotovoltaico monocristalino 300W",
+      "precio": 250.00,
+      "stock": 15,
+      "categoria": "Energía Solar",
+      "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=Panel+Solar",
+      "activo": true
+    },
+    {
+      "id": "4",
+      "nombre": "Kit Domótico Básico",
+      "descripcion": "Incluye hub, 3 sensores y 2 switches",
+      "precio": 120.00,
+      "stock": 20,
+      "categoria": "Automatización",
+      "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=Kit+Domotico",
+      "activo": true
+    },
+    {
+      "id": "5",
+      "nombre": "Lámpara LED 15W",
+      "descripcion": "Bombillo LED blanco frío 15W",
+      "precio": 5.00,
+      "stock": 200,
+      "categoria": "Iluminación",
+      "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=LED+15W",
+      "activo": true
+    }
+  ]
+}

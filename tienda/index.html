@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novoelectra Tienda | Productos</title>
+  <link rel="icon" type="image/png" href="../assets/logo-ne-amarillo.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <img src="../assets/logo-ne-blanco.png" alt="Novoelectra" style="height: 40px;">
+        <span>← Volver</span>
+      </a>
+      <div class="cart-icon" id="cartBtn" style="cursor: pointer; color: white;">
+        🛒 Carrito <span id="cartCount">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Catálogo -->
+  <main class="container" style="padding-top: 100px;">
+    <h1 style="color: #1e3a8a; margin-bottom: 2rem;">Nuestros Productos</h1>
+    
+    <!-- Filtros -->
+    <div class="filtros" style="margin-bottom: 2rem;">
+      <button class="filtro-btn active" data-categoria="todos">Todos</button>
+      <button class="filtro-btn" data-categoria="Cables">Cables</button>
+      <button class="filtro-btn" data-categoria="Protección">Protección</button>
+      <button class="filtro-btn" data-categoria="Energía Solar">Energía Solar</button>
+      <button class="filtro-btn" data-categoria="Automatización">Automatización</button>
+      <button class="filtro-btn" data-categoria="Iluminación">Iluminación</button>
+    </div>
+
+    <div id="productsGrid" class="products-grid"></div>
+  </main>
+
+  <!-- Modal Carrito -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <h3 style="color: #1e3a8a;">🛒 Tu Carrito</h3>
+      <div id="cartItems"></div>
+      <div class="cart-total" style="margin: 1rem 0; font-size: 1.5rem; font-weight: bold; color: #1e3a8a;">
+        Total: $<span id="cartTotal">0.00</span>
+      </div>
+      <button id="checkoutBtn" class="btn btn-primary" style="width: 100%;">
+        📱 Finalizar por WhatsApp
+      </button>
+      <button id="closeModal" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+        Seguir Comprando
+      </button>
+    </div>
+  </div>
+
+  <script src="tienda.js"></script>
+</body>
+</html>
