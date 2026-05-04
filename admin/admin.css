@@ -429,6 +429,52 @@
   margin-bottom: 1.5rem;
 }
 
+/* Loading Screen */
+#loadingSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.loading-container {
+  text-align: center;
+  color: white;
+}
+
+.loading-container .admin-logo {
+  width: 150px;
+  margin-bottom: 2rem;
+  animation: pulse 2s ease infinite;
+}
+
+.loading-container h1 {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top: 5px solid #FCD34D;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .admin-product-item {
