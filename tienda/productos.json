@@ -4,8 +4,8 @@
       "id": "0",
       "nombre": "Cable Eléctrico 12 AWG",
       "descripcion": "Cable eléctrico calibre 12, rollo 100m",
-      "precio": 46,
-      "stock": 23,
+      "precio": 45,
+      "stock": 20,
       "categoria": "Cables",
       "imagen": "https://via.placeholder.com/300x200/1e3a8a/FCD34D?text=Cable+12AWG",
       "activo": true
